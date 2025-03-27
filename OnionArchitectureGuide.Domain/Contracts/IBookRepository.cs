@@ -9,6 +9,6 @@ namespace OnionArchitectureGuide.Domain.Contracts
 {
     public interface IBookRepository
     {
-        Task<Book> GetAllAsync();
+        Task<IEnumerable<Book>> GetAllAsync();
     }
 }
