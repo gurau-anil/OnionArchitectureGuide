@@ -7,6 +7,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="14.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\OnionArchitectureGuide.Application.Abstraction\OnionArchitectureGuide.Application.Abstraction.csproj" />
     <ProjectReference Include="..\OnionArchitectureGuide.Domain\OnionArchitectureGuide.Domain.csproj" />
   </ItemGroup>
