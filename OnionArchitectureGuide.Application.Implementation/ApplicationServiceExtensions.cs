@@ -7,12 +7,15 @@ namespace OnionArchitectureGuide.Application.Implementation
 {
     public static class ApplicationServiceExtensions
     {
-        public static void AddApplicationServices(this IServiceCollection services)
+        public static IServiceCollection AddApplicationServices(this IServiceCollection services)
         {
+            //Registering all the automapper profiles
             services.AddAutoMapper(Assembly.GetExecutingAssembly());
 
-            services.AddScoped<IBookService,BookService>();
-            services.AddScoped<IAuthorService,AuthorService>();
+            services.AddScoped<IBookService, BookService>();
+            services.AddScoped<IAuthorService, AuthorService>();
+
+            return services;
         }
     }
 }

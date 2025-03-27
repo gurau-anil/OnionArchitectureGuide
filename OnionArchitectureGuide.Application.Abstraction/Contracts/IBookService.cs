@@ -4,6 +4,6 @@ namespace OnionArchitectureGuide.Application.Abstraction.Contracts
 {
     public interface IBookService
     {
-        Task<IEnumerable<BookDto>> GetAllBooks();
+        Task<List<BookDto>> GetAllBooks();
     }
 }

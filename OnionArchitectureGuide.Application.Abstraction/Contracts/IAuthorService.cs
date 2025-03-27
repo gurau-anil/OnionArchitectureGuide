@@ -4,6 +4,6 @@ namespace OnionArchitectureGuide.Application.Abstraction.Contracts
 {
     public interface IAuthorService
     {
-        Task<IEnumerable<AuthorDto>> GetAllAuthors();
+        Task<List<AuthorDto>> GetAllAuthors();
     }
 }

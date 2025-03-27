@@ -5,18 +5,18 @@ using OnionArchitectureGuide.Domain.Contracts;
 
 namespace OnionArchitectureGuide.Application.Implementation.Services
 {
-    public class AuthorService : IAuthorService
+    internal class AuthorService : IAuthorService
     {
-        private readonly IAuthorRepository _bookRepository;
+        private readonly IAuthorRepository _authorRepository;
         private readonly IMapper _mapper;
-        public AuthorService(IAuthorRepository bookRepository, IMapper mapper)
+        public AuthorService(IAuthorRepository authorRepository, IMapper mapper)
         {
-            _bookRepository = bookRepository;
+            _authorRepository = authorRepository;
             _mapper = mapper;
         }
-        public async Task<IEnumerable<AuthorDto>> GetAllAuthors()
+        public async Task<List<AuthorDto>> GetAllAuthors()
         {
-            return _mapper.Map<IEnumerable<AuthorDto>>(await _bookRepository.GetAllAsync());
+            return _mapper.Map<List<AuthorDto>>(await _authorRepository.GetAllAsync());
         }
     }
 }
