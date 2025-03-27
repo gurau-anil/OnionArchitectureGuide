@@ -1,18 +1,22 @@
-﻿using OnionArchitectureGuide.Domain.Contracts;
+﻿using Microsoft.EntityFrameworkCore;
+using OnionArchitectureGuide.Domain.Contracts;
 using OnionArchitectureGuide.Domain.Entities;
+using OnionArchitectureGuide.Persistence.Data;
 
 namespace OnionArchitectureGuide.Persistence.Repositories
 {
     internal class AuthorRepository : IAuthorRepository
     {
-        private readonly IAuthorRepository _authorRepository;
-        public AuthorRepository(IAuthorRepository authorRepository)
+        private readonly ApplicationDbContext _context;
+
+        public AuthorRepository(ApplicationDbContext context)
         {
-            _authorRepository = authorRepository;
+            _context = context;
         }
-        public async Task<IEnumerable<Author>> GetAllAsync()
+
+        public async Task<List<Author>> GetAllAsync()
         {
-            return await _authorRepository.GetAllAsync();
+            return await _context.Authors.ToListAsync();
         }
     }
 }

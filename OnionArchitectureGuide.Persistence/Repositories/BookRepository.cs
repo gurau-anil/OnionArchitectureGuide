@@ -1,23 +1,22 @@
-﻿using OnionArchitectureGuide.Domain.Contracts;
+﻿using Microsoft.EntityFrameworkCore;
+using OnionArchitectureGuide.Domain.Contracts;
 using OnionArchitectureGuide.Domain.Entities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using OnionArchitectureGuide.Persistence.Data;
 
 namespace OnionArchitectureGuide.Persistence.Repositories
 {
     internal class BookRepository : IBookRepository
     {
-        private readonly IBookRepository _bookRepository;
-        public BookRepository(IBookRepository bookRepository)
+        private readonly ApplicationDbContext _context;
+
+        public BookRepository(ApplicationDbContext context)
         {
-            _bookRepository = bookRepository;
+            _context = context;
         }
-        public async Task<IEnumerable<Book>> GetAllAsync()
+
+        public async Task<List<Book>> GetAllAsync()
         {
-            return await _bookRepository.GetAllAsync();
+            return await _context.Books.ToListAsync();
         }
     }
 }
