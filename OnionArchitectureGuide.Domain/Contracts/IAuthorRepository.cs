@@ -4,6 +4,6 @@ namespace OnionArchitectureGuide.Domain.Contracts
 {
     public interface IAuthorRepository
     {
-        Task<IEnumerable<Author>> GetAllAsync();
+        Task<List<Author>> GetAllAsync();
     }
 }
